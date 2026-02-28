@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🎉 Happy Birthday 🎂</title>
+<link rel="stylesheet" href="woo.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+
+/* Smooth fade */
+.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+/* Question Section */
+.section {
+  margin-top: 120px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  margin: 20px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* NO Button */
+#noBtn {
+  position: absolute;
+}
+
+/* Rating Section */
+#ratingSection {
+  display: none;
+}
+
+/* Birthday Reveal */
+#birthdayReveal {
+  display: none;
+  height: 100vh;
+  background: radial-gradient(circle, #ff4d6d, #b3003c);
+  color: white;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.birthday-text {
+  margin-top: 150px;
+  font-size: 50px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 30px yellow; }
+}
+
+/* Floating balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(202, 119, 63, 0.6);
+  z-index: -1;
+}
+</style>
+</head>
+
+<body>
+
+  <audio id="bgMusic" loop>
+  <source src="John Cena - The Time Is Now (Entrance Theme) 4.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- INTRO SCREEN -->
+<div id="introScreen" class="intro">
+  <h1>Are you ready? 👀</h1>
+  <button onclick="startGame()">READY 😎</button>
+  <button id="notReadyBtn">Not Ready 😰</button>
+</div>
+
+
+<!-- QUESTION SECTION -->
+<div class="section" id="questionSection"style="display:none;">
+  <h1 id="mainQuestion">am i ur bestiee? 💖</h1>
+
+  <div id="buttons">
+    <button onclick="sayYes()">YES</button>
+    <button id="noBtn">NO</button>
+  </div>
+
+  <div id="ratingSection">
+    <h2>Okay fine 😌 Rate me out of 10</h2>
+    <input type="number" id="ratingInput" min="1" max="10">
+    <button onclick="checkRating()">Submit</button>
+  </div>
+</div>
+
+<!-- BIRTHDAY REVEAL SECTION -->
+<!-- BIRTHDAY REVEAL SECTION -->
+<div id="birthdayReveal">
+  <h1 class="birthday-text">your 1st gif</h1>
+  <h2>heheheh 💖</h2>
+  <p class="scratch-text">✨ Scratch Here 👇 ✨</p>
+
+  <div class="scratch-container">
+  <img src="cap2.png" class="scratch-image">
+  <canvas id="scratchCanvas"></canvas>
+
+  <div id="unlockedText" style="display:none;">
+    🎁 SURPRISE UNLOCKED! 🎉
+  </div>
+
+  <button id="nextBtn" style="display:none;" onclick="showCoffeeQuestion()">
+    Next ☕
+  </button>
+</div>
+</div>
+
+<!-- COFFEE SECTION (OUTSIDE birthdayReveal) -->
+<div id="coffeeSection" style="display:none; padding-top:120px; color:white;">
+  <h1>☕ What's Your Coffee Preference?</h1>
+
+  <form id="coffeeForm">
+    <label><input type="checkbox" value="Espresso"> Espresso</label><br><br>
+    <label><input type="checkbox" value="Cafe Latte"> Cafe Latte</label><br><br>
+    <label><input type="checkbox" value="Americano"> Americano</label><br><br>
+    <label><input type="checkbox" value="Cappuccino"> Cappuccino</label><br><br>
+
+    <button type="button" onclick="submitCoffee()">Submit ☕</button>
+  </form>
+
+  <div id="coffeeResult" style="margin-top:20px; font-size:22px;"></div>
+</div>
+
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const notReadyBtn = document.getElementById("notReadyBtn");
+const bgMusic = document.getElementById("bgMusic");
+const introScreen = document.getElementById("introScreen");
+const questionSection = document.getElementById("questionSection");
+
+let musicStarted = false;
+
+// START GAME (when READY is clicked)
+function startGame() {
+
+  // Start music safely
+  if (!musicStarted) {
+    bgMusic.volume = 0.7;
+    bgMusic.play().catch(() => {});
+    musicStarted = true;
+  }
+
+  // Fade out intro
+  introScreen.classList.add("fade-out");
+
+  setTimeout(() => {
+    introScreen.style.display = "none";
+    questionSection.style.display = "block";
+  }, 800);
+}
+
+// NOT READY button runs away 😈
+notReadyBtn.addEventListener("mouseenter", function () {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+
+  notReadyBtn.style.position = "absolute";
+  notReadyBtn.style.left = x + "px";
+  notReadyBtn.style.top = y + "px";
+});
+
+// NO button runs away
+noBtn.addEventListener("mouseenter", function () {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+function sayYes() {
+  document.getElementById("buttons").style.display = "none";
+  document.getElementById("mainQuestion").innerText = "Good choice 😘";
+  document.getElementById("ratingSection").style.display = "block";
+}
+
+function checkRating() {
+  let rating = parseInt(document.getElementById("ratingInput").value);
+
+  if (rating >= 9 && rating <= 10) {
+
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      document.getElementById("questionSection").style.display = "none";
+      document.getElementById("birthdayReveal").style.display = "block";
+      document.body.classList.remove("fade-out");
+      initScratchCard();
+    }, 1000);
+
+  } else if (rating < 9) {
+    alert("Wrong answer 😤 Try again between 9 and 10.😙");
+    document.getElementById("ratingInput").value = "";
+  } else {
+    alert("Maximum is 10 😭");
+  }
+}
+let canvas, ctx;
+let isDrawing = false;
+let revealed = false;
+
+function initScratchCard() {
+  canvas = document.getElementById("scratchCanvas");
+  ctx = canvas.getContext("2d");
+
+ canvas.width = canvas.clientWidth;
+canvas.height = canvas.clientHeight;
+
+  // Grey layer
+  ctx.fillStyle = "#C0C0C0";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.globalCompositeOperation = "destination-out";
+
+  canvas.addEventListener("mousedown", startScratch);
+  canvas.addEventListener("mouseup", stopScratch);
+  canvas.addEventListener("mousemove", scratch);
+
+  canvas.addEventListener("touchstart", startScratch);
+  canvas.addEventListener("touchend", stopScratch);
+  canvas.addEventListener("touchmove", scratch);
+}
+
+function startScratch() {
+  isDrawing = true;
+}
+
+function stopScratch() {
+  isDrawing = false;
+  checkReveal();
+}
+
+function scratch(e) {
+  if (!isDrawing) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+  const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+
+  ctx.beginPath();
+  ctx.arc(x, y, 25, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+
+ function checkReveal() {
+  if (revealed) return;
+
+  if (canvas.width === 0 || canvas.height === 0) return;
+
+  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  let cleared = 0;
+
+  for (let i = 3; i < pixels.data.length; i += 4) {
+    if (pixels.data[i] === 0) cleared++;
+  }
+
+  const percent = cleared / (canvas.width * canvas.height);
+
+  if (percent > 0.4) {   // lowered to 40% so easier
+    revealed = true;
+
+    document.getElementById("unlockedText").style.display = "block";
+    document.getElementById("nextBtn").style.display = "inline-block";
+
+    canvas.style.transition = "opacity 1s";
+    canvas.style.opacity = 0;
+    window.location.href = "feedback.html";
+  }
+}
+
+</script>
+
+
+
+</body>
+</html>

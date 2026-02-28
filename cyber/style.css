@@ -1,0 +1,83 @@
+/* ====== EARLY 2000s AESTHETIC ====== */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #99ccff, #ffffff);
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  color: #000066;
+}
+
+/* Center everything like old websites */
+.container {
+  width: 800px;
+  margin: auto;
+  background: #ffffff;
+  border: 5px double #0000cc;
+  padding: 20px;
+  box-shadow: 0 0 15px #3399ff;
+}
+
+/* Header */
+.header {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(to right, #0000ff, #66ccff);
+  color: white;
+  padding: 15px;
+  border: 3px outset #000099;
+  text-shadow: 2px 2px 4px #000;
+}
+
+/* Navigation */
+.nav {
+  text-align: center;
+  background: #cce6ff;
+  padding: 10px;
+  border: 2px solid #0000cc;
+  margin-top: 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #0000cc;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.nav a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* Content box */
+.content {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f2f9ff;
+  border: 2px dotted #0000cc;
+}
+
+/* Headings */
+h2 {
+  color: #0000cc;
+  border-bottom: 2px dashed #3399ff;
+  padding-bottom: 5px;
+}
+
+/* List style */
+ul {
+  list-style-type: square;
+}
+
+/* Counter */
+.counter {
+  background: black;
+  color: lime;
+  font-family: "Courier New", monospace;
+  padding: 5px 10px;
+  display: inline-block;
+  border: 2px inset gray}
+
+ 

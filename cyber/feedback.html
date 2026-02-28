@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Feedback 💌</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  font-family: Arial;
+  text-align:center;
+  padding-top:100px;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:white;
+}
+
+input, textarea{
+  width:80%;
+  max-width:400px;
+  padding:10px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Send Me Feedback 💖</h1>
+
+<form action="https://formsubmit.co/prakamybajpai@gmail.com" method="POST">
+
+  <!-- Optional Name -->
+  
+
+  <!-- Message -->
+  <textarea name="message" rows="6" placeholder="Your Message 💌" required></textarea>
+
+  <!-- Disable captcha -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Thank you page redirect -->
+  <input type="hidden" name="_next" value="thankyou.html">
+
+  <br>
+  <button type="submit">Send 💌</button>
+
+</form>
+
+</body>
+</html>

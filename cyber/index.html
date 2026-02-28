@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CYBER BIRTHDAY.exe</title>
+<link rel="stylesheet" href="styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  
+  <audio id="bgMusic" loop>
+  <source src="Miami XO - Bazooka [p.slxwly].mp3" type="audio/mpeg">
+</audio>
+
+  
+ <audio id="clickSound" src="yooooooooooooooooooooooooo_4_objp8XX.mp3" preload="auto"></audio>
+
+
+  <div class="bg-flash"></div>
+
+
+<div class="overlay"></div>
+
+<div class="container">
+
+  <h1 class="glitch" data-text="HAPPY BIRTHDAY MR YEPTHO">
+    HAPPY BIRTHDAY MR YEPTHO
+  </h1>
+
+  <form class="cyber-form" onsubmit="return verifyUser()">
+    <input type="text" id="name" placeholder="Enter your name mr👌" required>
+    <input type="number" id="age" placeholder="Enter your age unc👴" required>
+    <button type="submit">see if you are telling truth (❁´◡`❁)</button>
+  </form>
+
+  <div class="content">
+
+    
+
+   
+    <p>
+      WISHING YOU A VERY HAPPY BIRTHDAY UNC 😁🫶 <br><br>(*￣3￣)╭
+    </p>
+
+   
+
+  </div>
+
+  <div class="footer">
+    © 2026 GETTING OLD HEHEHE | Powered by GYM and 🖐️eggs 
+  </div>
+
+</div>
+
+
+
+<script>
+
+ const bgMusic = document.getElementById("bgMusic");
+
+// Start music on first click anywhere
+document.addEventListener("click", function () {
+  bgMusic.volume = 0.5;
+  bgMusic.play();
+
+  // Add shake effect
+  document.body.classList.add("shake");
+
+  // Remove shake after animation ends
+  setTimeout(() => {
+    document.body.classList.remove("shake");
+  }, 400);
+
+}, { once: true });
+
+
+  const clickSound = document.getElementById("clickSound");
+
+document.querySelectorAll("button").forEach(button => {
+  button.addEventListener("click", () => {
+    clickSound.currentTime = 0; // restart sound if clicked fast
+    clickSound.play();
+  });
+});
+
+function verifyUser() {
+  let name = document.getElementById("name").value.trim().toLowerCase();
+  let age = parseInt(document.getElementById("age").value);
+
+  let allowedNames = ["tuna o yeptho"];
+
+  if (!allowedNames.includes(name)) {
+    alert("Boi enter your full and real NaMe ＞﹏＜");
+    return false;
+  }
+
+  if (age < 25) {
+    alert("Boi UR 25 accept it🤌 (^人^)");
+    return false;
+  }
+
+  // If both correct
+  alert("hmm khul ja sim sim 😈");
+  document.body.classList.add("glitch");
+
+  setTimeout(() => {
+    window.location.href = "exp.html";
+  }, 2000);
+
+  return false;
+}
+
+ 
+  
+
+</script>
+
+
+</body>
+</html>

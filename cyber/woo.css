@@ -1,0 +1,249 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  overflow: hidden;
+  transition: 1s;
+background-color: #ff4d6d;
+ 
+}
+@keyframes moveBg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 500px;
+  }
+}
+.mainQuestion{
+text-decoration-color: aliceblue;
+}
+
+/* Fade transition */
+.fade-out {
+  opacity: 0;
+  transform: scale(1.1) rotate(3deg);
+}
+
+/* Question Section */
+.section {
+  margin-top: 120px;
+  background: rgba(0,0,0,0.6);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgb(205, 27, 116);
+  display: inline-block;
+}
+
+/* Buttons */
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  margin: 20px;
+  border: 3px solid hotpink;
+  border-radius: 25px;
+  background: linear-gradient(to right, pink, violet);
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: scale(1.2) rotate(-3deg);
+  box-shadow: 0 0 20px yellow;
+}
+
+/* NO Button */
+#noBtn {
+  position: absolute;
+}
+
+/* Rating Section */
+#ratingSection {
+  display: none;
+}
+
+/* Birthday Reveal */
+#birthdayReveal {
+  display: none;
+  height: 100vh;
+  background: url("https://i.imgur.com/5P7xH.gif");
+  background-size: cover;
+  color: white;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.birthday-text {
+  margin-top: 150px;
+  font-size: 60px;
+  animation: glow 1.5s infinite alternate;
+  text-shadow: 0 0 20px cyan;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 40px hotpink; }
+}
+
+/* Floating balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120vh); }
+}
+
+@keyframes screenShake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 5px); }
+  50% { transform: translate(5px, -5px); }
+  75% { transform: translate(-5px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: screenShake 0.5s;
+}
+
+/* Intro Screen */
+.intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #ff4d6d, #b3003c);
+  color: white;
+}
+
+/* Shake animation */
+@keyframes screenShake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-6px, 6px); }
+  50% { transform: translate(6px, -6px); }
+  75% { transform: translate(-6px, -6px); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake {
+  animation: screenShake 0.5s;
+}
+/* Scratch Card */
+.scratch-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255,255,255,0.6);
+  animation: zoomIn 1s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0); opacity:0; }
+  to { transform: scale(1); opacity:1; }
+}
+
+.scratch-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#scratchCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#unlockedText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: yellow;
+  display: none;
+  animation: glowUnlock 1s infinite alternate;
+}
+
+@keyframes glowUnlock {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 25px gold; }
+}
+#coffeeSection {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+#coffeeForm label {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#coffeeForm input {
+  transform: scale(1.3);
+  margin-right: 10px;
+}
+.scratch-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+}
+
+.scratch-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#scratchCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* SCRATCH CARD SIZE FIX */
+.scratch-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+}
+
+.scratch-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#scratchCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.scratch-container {
+  position: relative;
+  text-align: center;
+}
+
+#nextBtn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 20px;
+}
